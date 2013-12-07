@@ -1,0 +1,3 @@
+krymen_sensors_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: KrymenSensorsBundle:Default:index }

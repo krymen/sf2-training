@@ -1,0 +1,4 @@
+krymen_sensors:
+    resource: "@KrymenSensorsBundle/Resources/config/routing.yml"
+    prefix:   /
+
