@@ -2,6 +2,7 @@ parameters:
     krymen_sensors.repository.class: Krymen\SensorsBundle\Entity\SensorRepository
     krymen_sensors.sensor.class: Krymen\SensorsBundle\Entity\Sensor
     krymen_sensors.service.class: Krymen\SensorsBundle\Service\SensorManager
+    krymen_sensors.watchdog.class: Krymen\SensorsBundle\Service\Watchdog
 
 services:
     krymen_sensors.repository:
@@ -13,3 +14,8 @@ services:
     krymen_sensors.service:
         class: %krymen_sensors.service.class%
         arguments: [@krymen_sensors.repository, @doctrine.orm.entity_manager, @event_dispatcher]
+
+    krymen_sensors.watchdog:
+        class: %krymen_sensors.watchdog.class%
+        tags:
+            - { name: kernel.event_listener, event: krymen_sensors.sample.store, method: onStoreSample }

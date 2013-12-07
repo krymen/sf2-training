@@ -15,4 +15,9 @@ class SampleEvent extends Event
     {
         $this->sample = $sample;
     }
+
+    public function getSampleValue()
+    {
+        return $this->sample->getValue();
+    }
 }
