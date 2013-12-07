@@ -3,12 +3,15 @@
 namespace Krymen\SensorsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Sample
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Sample
 {
@@ -25,6 +28,7 @@ class Sample
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Expose
      */
     private $date;
 
@@ -32,6 +36,7 @@ class Sample
      * @var float
      *
      * @ORM\Column(name="value", type="float")
+     * @Expose
      */
     private $value;
 

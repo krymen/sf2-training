@@ -4,12 +4,15 @@ namespace Krymen\SensorsBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Sensor
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Krymen\SensorsBundle\Entity\SensorRepository")
+ * @ExclusionPolicy("all")
  */
 class Sensor
 {
@@ -18,6 +21,7 @@ class Sensor
      *
      * @ORM\Column(name="id", type="string")
      * @ORM\Id
+     * @Expose
      */
     private $id;
 
@@ -25,6 +29,7 @@ class Sensor
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Expose
      */
     private $name;
     /**
@@ -37,6 +42,7 @@ class Sensor
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=30)
+     * @Expose
      */
     private $type;
 
@@ -48,6 +54,7 @@ class Sensor
      *      joinColumns={@ORM\JoinColumn(name="sensor_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="sample_id", referencedColumnName="id", unique=true)}
      * )
+     * @Expose
      **/
     private $samples;
 

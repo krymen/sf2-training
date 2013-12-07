@@ -10,6 +10,6 @@ services:
         factory_method: getRepository
         arguments: [%krymen_sensors.sensor.class%]
 
-    krymen_sensors.sensor:
+    krymen_sensors.service:
         class: %krymen_sensors.service.class%
         arguments: [@krymen_sensors.repository, @doctrine.orm.entity_manager, @event_dispatcher]
