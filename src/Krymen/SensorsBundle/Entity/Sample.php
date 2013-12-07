@@ -2,7 +2,6 @@
 
 namespace Krymen\SensorsBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,12 +35,11 @@ class Sample
      */
     private $value;
 
-    function __construct($value)
+    public function __construct($value)
     {
         $this->date  = new \DateTime();
         $this->value = $value;
     }
-
 
     /**
      * Get id

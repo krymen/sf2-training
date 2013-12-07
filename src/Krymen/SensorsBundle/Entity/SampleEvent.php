@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Krymen\SensorsBundle\Entity;
 
 use Symfony\Component\EventDispatcher\Event;
@@ -16,4 +15,4 @@ class SampleEvent extends Event
     {
         $this->sample = $sample;
     }
-} 
+}

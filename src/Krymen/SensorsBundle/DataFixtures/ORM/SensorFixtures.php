@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Krymen\SensorsBundle\DataFixtures\ORM;
-
 
 namespace Acme\HelloBundle\DataFixtures\ORM;
 
-use Acme\HelloBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -51,10 +48,9 @@ class SensorFixtures extends AbstractFixture implements OrderedFixtureInterface
      *
      * @return integer
      */
-    function getOrder()
+    public function getOrder()
     {
         return 100;
     }
-
 
 }

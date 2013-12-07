@@ -1,7 +1,6 @@
 <?php
 namespace Krymen\SensorsBundle\Entity;
 
-
 /**
  * SensorRepository
  *
