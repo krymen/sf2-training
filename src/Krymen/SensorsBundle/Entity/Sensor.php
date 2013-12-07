@@ -51,7 +51,7 @@ class Sensor
      **/
     private $samples;
 
-    public function __construct($id, $name, $description, $type)
+    public function __construct($id, $name, $type, $description = '')
     {
         $this->id = $id;
         $this->name = $name;
@@ -142,11 +142,11 @@ class Sensor
         return $this;
     }
 
-    public function addSample(\DateTime $date, $value)
+    public function addSample($value)
     {
-        $sensor = new Sample($date, $value);
-        $this->samples->add($sensor);
+        $sample = new Sample($value);
+        $this->samples->add($sample);
 
-        return $sensor;
+        return $sample;
     }
 }

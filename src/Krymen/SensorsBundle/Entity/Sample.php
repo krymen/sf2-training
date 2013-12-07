@@ -36,9 +36,9 @@ class Sample
      */
     private $value;
 
-    function __construct($date, $value)
+    function __construct($value)
     {
-        $this->date  = $date;
+        $this->date  = new \DateTime();
         $this->value = $value;
     }
 

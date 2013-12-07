@@ -1,7 +1,15 @@
 parameters:
-#    krymen_sensors.example.class: Krymen\SensorsBundle\Example
+    krymen_sensors.repository.class: Krymen\SensorsBundle\Entity\SensorRepository
+    krymen_sensors.sensor.class: Krymen\SensorsBundle\Entity\Sensor
+    krymen_sensors.service.class: Krymen\SensorsBundle\Service\SensorManager
 
 services:
-#    krymen_sensors.example:
-#        class: %krymen_sensors.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    krymen_sensors.repository:
+        class: %krymen_sensors.repository.class%
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [%krymen_sensors.sensor.class%]
+
+    krymen_sensors.sensor:
+        class: %krymen_sensors.service.class%
+        arguments: [@krymen_sensors.repository, @doctrine.orm.entity_manager, @event_dispatcher]

@@ -26,8 +26,8 @@ class SensorFixtures extends AbstractFixture implements OrderedFixtureInterface
             $sensor = new Sensor(
                 $faker->uuid,
                 $faker->name,
-                $faker->text(100),
-                $faker->randomElement(array('temperature', 'humidity'))
+                $faker->randomElement(array('temperature', 'humidity')),
+                $faker->text(100)
             );
 
             foreach (range(1, 10) as $sa) {
@@ -37,7 +37,7 @@ class SensorFixtures extends AbstractFixture implements OrderedFixtureInterface
                     $value = $faker->randomFloat(2, 0, 100);
                 }
 
-                $sensor->addSample($faker->dateTimeThisDecade, $value);
+                $sensor->addSample($value);
             }
 
             $manager->persist($sensor);
