@@ -31,7 +31,13 @@ class SensorFixtures extends AbstractFixture implements OrderedFixtureInterface
             );
 
             foreach (range(1, 10) as $sa) {
-                $sensor->addSample($faker->dateTimeThisYear, $faker->randomFloat);
+                if ('temperature' === $sensor->getType()) {
+                    $value = $faker->randomFloat(2, -20, 40);
+                } else {
+                    $value = $faker->randomFloat(2, 0, 100);
+                }
+
+                $sensor->addSample($faker->dateTimeThisDecade, $value);
             }
 
             $manager->persist($sensor);
